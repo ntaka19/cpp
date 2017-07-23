@@ -16,12 +16,13 @@ using namespace std;
 int V;
 vector<int> G[MAX_V]; //グラフの隣接リストを表現
 vector<int> rG[MAX_V]; //辺の向きを逆にしたグラフ
-vector<int> vs; //帰りがけ順の並び
+vector<int> vs; //帰りがけ順の並び. backtrackするごとに入れる。
 bool used[MAX_V]; //すでに調べたか
 int cmp[MAX_V]; //属する強連結成分のトポロジカル順序
 
 int main(){}
 
+//辺の向きを順方向と逆方向で入れる。
 void add_edge(int from,int to){
   G[from].push_back(to);
   rG[from].push_back(from);
