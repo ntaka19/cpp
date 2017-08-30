@@ -15,6 +15,7 @@ using namespace std;
 //行き先、容量、逆辺
 struct edge{int to,cap,rev;};
 vector<edge> G[MAX_V];
+
 bool used[MAX_V];
 
 void add_edge(int from,int to,int cap);
@@ -71,10 +72,12 @@ int dfs(int v,int t, int f){
 //sからtへの最大流量を求める
 int max_flow(int s,int t){
   int flow = 0;
-  
+ 
+  //for(;;) basically means while(true) 
   for (;;) {
     memset(used,0,sizeof(used));
     int f = dfs(s,t,INF);
+    //増加パスが存在しない。
     if (f==0) return flow;
     flow += f;
   }

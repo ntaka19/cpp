@@ -26,6 +26,7 @@ int scc();
 int main(){
   
   //cout << "ifstream" << endl;
+  //ifstream ifs("edgelist0.dat");
   ifstream ifs("data.txt");
   string str;
 

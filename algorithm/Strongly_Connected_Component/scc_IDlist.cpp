@@ -37,7 +37,8 @@ int main(){
   string reading_line_buffer;
 
   ifstream reading_file;
-  reading_file.open("IDedgelist.dat");
+  //reading_file.open("IDedgelist.dat");
+  reading_file.open("edgelist0.dat");
   
   if(reading_file.fail()){
     cerr<<"File do not exist\n";

@@ -4,7 +4,7 @@
 int main()
 {
 	std::vector<double> x;
-	x.resize(4);
+	x.resize(4); //随時更新可能
 	x[0] = 10;
 	x[1] = 20;
 	x[2] = 30;
