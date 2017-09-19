@@ -151,12 +151,12 @@ int main(){
   }
 
 
-
   prevfile="2016.dat";
   currfile="2017.dat";
   newfirm(prevfile,currfile,geodat,distarray);
-
-
   
-
+  double tt = distarray[0];
+  cout << tt << endl;
+ 
+  sort(distarray.begin(), distarray.end());
 }
