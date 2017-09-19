@@ -10,7 +10,7 @@
 using namespace std;
 
 
-bool has_key_using_count(map<mu＠uuuu＠＠uumu＠uuuu＠＠uuuu> &m, string n){
+bool has_key_using_count(map<string,string> &m, string n){
   if(m.count(n)==0){
     cout << "m doesn't have " << n << "." << endl;
     return false;
@@ -43,7 +43,7 @@ int main(){
   
   while(true){ 
     pastdat >> ltext >> rtext;
-    if(reading_file.eof()) break;
+    if(pastdat.eof()) break;
     pastyear[ltext] = rtext;
     
   }
@@ -60,7 +60,20 @@ int main(){
     thisdat >> ltext >> rtext;
     if(thisdat.eof()) break;
     
-      
-
+    if(!has_key_using_count(pastyear,ltext)){
+      thisyear.insert(make_pair(ltext,rtext));
+    }
   }
+  
+/* 
+  for(auto itr = pastyear.begin(); itr != pastyear.end(); ++itr) {
+        std::cout << "key = " << itr->first           // キーを表示
+                        << ", val = " << itr->second << "\n";    // 値を表示
+  }
+  */
+
+  for(auto itr = thisyear.begin(); itr != thisyear.end(); ++itr) {
+        std::cout << "key = " << itr->first << ", val = " << itr->second << "\n";    // 値を表示
+  }
+
 }
