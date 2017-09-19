@@ -8,6 +8,8 @@
 #include<string>
 #include<cmath>
 
+//新規企業における取引先の距離分布を計算
+
 #define MAX_V 10000 
 using namespace std;
 
@@ -52,7 +54,7 @@ double Hubeny(Coordinate first, Coordinate second){
 }
 
 
-void newfirm(string prevfile, string currfile, map<string,Coordinate> &geodat ){
+void newfirm(string prevfile, string currfile, map<string,Coordinate> &geodat, vector<double> &distarray ){
   map<string, string> pastyear;
   map<string, string> pastyearR;
   double dist; 
@@ -109,6 +111,7 @@ void newfirm(string prevfile, string currfile, map<string,Coordinate> &geodat ){
   for(auto itr = thisyear.begin(); itr != thisyear.end(); ++itr) {
       
       dist = Hubeny(geodat[itr->first], geodat[itr->second]);
+      distarray.push_back(dist);
 
       cout << dist << endl;
 
@@ -123,14 +126,9 @@ int main(){
   
   double longt,latit;
 
-  /*
-  struct Coordinate{
-    double longtitude;
-    double latitude;
-  };*/
-
  //CDと緯度経度のマップ
   map<string, Coordinate> geodat;
+  vector<double> distarray;
 
   ifstream cd2geo; 
   cd2geo.open("geo.dat");
@@ -156,5 +154,9 @@ int main(){
 
   prevfile="2016.dat";
   currfile="2017.dat";
-  newfirm(prevfile,currfile,geodat);
+  newfirm(prevfile,currfile,geodat,distarray);
+
+
+  
+
 }
